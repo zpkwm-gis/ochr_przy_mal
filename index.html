@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+		<link rel="stylesheet" href="css/Control.MiniMap.min.css" />	
         <style>
         html, body, #map {
             width: 100%;
@@ -37,6 +38,7 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+		<script src="js/Control.MiniMap.min.js"></script>
         <script src="js/leaflet.mask.js"></script>
         <script src="data/Wojewodztwo_1.js"></script>
         <script src="data/Stanowiskadokumentacyjne_2.js"></script>
@@ -286,33 +288,6 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Wojewodztwo_1_0() {
-            return {
-                pane: 'pane_Wojewodztwo_1',
-                opacity: 1,
-                color: 'rgba(110,110,110,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 4.0,
-                fillOpacity: 0,
-                interactive: false,
-            }
-        }
-        map.createPane('pane_Wojewodztwo_1');
-        map.getPane('pane_Wojewodztwo_1').style.zIndex = 401;
-        map.getPane('pane_Wojewodztwo_1').style['mix-blend-mode'] = 'normal';
-        var layer_Wojewodztwo_1 = new L.geoJson(json_Wojewodztwo_1, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_Wojewodztwo_1',
-            layerName: 'layer_Wojewodztwo_1',
-            pane: 'pane_Wojewodztwo_1',
-            onEachFeature: pop_Wojewodztwo_1,
-            style: style_Wojewodztwo_1_0,
-        });
-        bounds_group.addLayer(layer_Wojewodztwo_1);
-        map.addLayer(layer_Wojewodztwo_1);
         function pop_Stanowiskadokumentacyjne_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -873,6 +848,14 @@
         .className += ' fa fa-search';
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
+		
+		//Plugin MiniMap (start)
+			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+			var osmAttrib='Map data &copy; OpenStreetMap contributors';
+		    var OSMmini = new L.tileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib });
+      		var miniMap = new L.Control.MiniMap(OSMmini, {toggleDisplay: true, minimized: false, width: 252, height: 150, position: 'bottomleft'}).addTo(map);
+		//Plugin MiniMap (stop)
+			
         var baseMaps = {};
         var overlaysTree = [
         {label: '<b>LEGENDA</b>', selectAllCheckbox: false, children: [
@@ -885,7 +868,6 @@
             {label: '<img src="legend/Uytkiekologiczne_4.png" /> Użytki ekologiczne', layer: layer_Uytkiekologiczne_4},
             {label: '<img src="legend/Zespolyprzyrkrajobr_3.png" /> Zespoly przyr.-krajobr.', layer: layer_Zespolyprzyrkrajobr_3},
             {label: '<img src="legend/Stanowiskadokumentacyjne_2.png" /> Stanowiska dokumentacyjne', layer: layer_Stanowiskadokumentacyjne_2},
-            {label: '<img src="legend/Wojewodztwo_1.png" /> Wojewodztwo', layer: layer_Wojewodztwo_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0},]},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -894,7 +876,8 @@
             //openedSymbol: '&#8863; &#x1f5c1;',
             //collapseAll: 'Collapse all',
             //expandAll: 'Expand all',
-            collapsed: false, 
+            collapsed: false,
+			position: 'bottomleft',
         });
         lay.addTo(map);
         setBounds();
