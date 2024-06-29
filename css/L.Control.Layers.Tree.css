@@ -1,3 +1,22 @@
+		input[type='checkbox']:checked {
+		background-color: rgb(143,143,143,1.0);
+		}
+		input[type='checkbox']:checked:after {
+		content: '';
+		color:white;
+		}
+		input[type='checkbox']{
+		text-align: center;
+		vertical-align: top;
+		width: 15px !important;
+		height: 15px !important;
+		appearance:none;
+		border-radius:10%;
+		border: 1px solid rgb(143,143,143,1.0);
+		box-shadow: none;
+		font-size: 1em;
+		}
+
 .leaflet-control-layers-toggle.leaflet-layerstree-named-toggle {
     margin: 2px 5px;
     width: auto;
@@ -13,7 +32,7 @@
 }
 
 .leaflet-layerstree-header input{
-    margin-left: 0px;
+    margin-left: 4px;
 }
 
 
@@ -33,14 +52,14 @@
 }
 
 .leaflet-layerstree-header-name {
-	padding-left: 2px;
+	padding-left: 6px;
 }
 
 .leaflet-layerstree-header-space {
 }
 
 .leaflet-layerstree-children {
-    padding-left: 20px;
+    padding-left: 14px;
 }
 
 .leaflet-layerstree-children-nopad {

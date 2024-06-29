@@ -1,0 +1,27 @@
+/* Icons from Font-Awesome  | Font Awesome by Dave Gandy - http://fontawesome.io*/
+/* Thanks to http://fa2png.io/ for icon png generation */
+
+.leaflet-control-navbar-fwd {
+background-image: url("images/arrow-right_0.png");
+}
+
+.leaflet-control-navbar-back {
+background-image: url("images/arrow-left_0.png");
+}
+
+.leaflet-control-navbar-home {
+background-image: url("images/home_0.png");
+}
+
+
+.leaflet-control-navbar-fwd-disabled {
+background-image: url("images/arrow-right_b.png");
+}
+
+.leaflet-control-navbar-back-disabled {
+background-image: url("images/arrow-left_b.png");
+}
+
+.leaflet-control-navbar-home-disabled {
+background-image: url("images/home_b.png");
+}
