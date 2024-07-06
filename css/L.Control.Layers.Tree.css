@@ -1,3 +1,5 @@
+
+
 .leaflet-control-layers-toggle.leaflet-layerstree-named-toggle {
     margin: 2px 5px;
     width: auto;
@@ -33,14 +35,14 @@
 }
 
 .leaflet-layerstree-header-name {
-	padding-left: 2px;
+	padding-left: 3px;
 }
 
 .leaflet-layerstree-header-space {
 }
 
 .leaflet-layerstree-children {
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
 .leaflet-layerstree-children-nopad {
