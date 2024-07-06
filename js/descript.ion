@@ -1,7 +1,9 @@
 ﻿Control.FullScreen.js +
-Leaflet.GraphicScale.min.js +
 Control.MiniMap.min.js +
-Leaflet.NavBar.js +
-leaflet.contextmenu.js +
-leaflet-control-boxzoom.js +
+L.Control.Locate.min.js modyfikacja
 leaflet.browser.print.min.js +
+leaflet.contextmenu.js +
+Leaflet.GraphicScale.min.js +
+leaflet.mask.js +
+Leaflet.NavBar.js +
+leaflet-control-boxzoom.js +
